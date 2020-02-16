@@ -12,7 +12,6 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
-
 void main() {
   runApp(MaterialApp(
     initialRoute: '/',
@@ -43,7 +42,10 @@ final List child = map<Widget>(
             child: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color.fromARGB(200, 0, 0, 0), Color.fromARGB(0, 0, 0, 0)],
+                  colors: [
+                    Color.fromARGB(200, 0, 0, 0),
+                    Color.fromARGB(0, 0, 0, 0)
+                  ],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                 ),
@@ -124,11 +126,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
-
-    
-    
-    
     return new MaterialApp(
       title: 'MediaQuery Demo',
       theme: new ThemeData(
@@ -136,233 +133,304 @@ class MyApp extends StatelessWidget {
       ),
       home: new MyHomePage(),
     );
-
-    
-  
   }
 }
-
 
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-
     final CarouselSlider manualCarouselDemo = CarouselSlider(
       items: child,
       autoPlay: false,
       enlargeCenterPage: true,
       viewportFraction: 0.9,
       aspectRatio: 2.0,
-    );    
+    );
 
-
-      Paint paintRed = Paint();
-      paintRed.color = Colors.red;
-      Paint paintYellow = Paint();
-      paintYellow.color = Colors.yellow;
-      Paint paintGreen = Paint();
-      paintGreen.color = Colors.green;
-      return new Stack(
-        children: <Widget>[
-          // The containers in the background
-          new Column(
-            children: <Widget>[
-              new Container(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * .30,
-
-                decoration: BoxDecoration(
-                  border: null,
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.deepPurple,
-                      Colors.purple,
-                    ],
-                  ),
-                ),
-
-                child: Center(
-                  child: Text(
-                    ' MyMasjid \nAhmad Kazim',
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                      fontFamily: 'RobotoMono',
-                      decoration: TextDecoration.none,
-                      fontSize: 25,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-
-              new Container(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * .70,
-                color: Colors.white,
-              )
-            ],
-          ),
-
-          // The card widget with top padding,
-          // incase if you wanted bottom padding to work,
-          // set the `alignment` of container to Alignment.bottomCenter
-
-
-          new Container(
-            alignment: Alignment.topCenter,
-            padding: new EdgeInsets.only(
-                top: MediaQuery
-                    .of(context)
-                    .size
-                    .height * .20,
-                right: 20.0,
-                left: 20.0),
-           
-            child: new Container(
-              height: 100.0,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-             
-              child: new Card(
-                color: Colors.white,
-                elevation: 4.0,
-
-              child: InkWell(
-                onTap: () {
-                  
-                  Navigator.push(context, new MaterialPageRoute(
-                   builder: (context) =>
-                  new SecondHome())
-                );
-                  
-                  // Navigator.of(context).pushNamedAndRemoveUntil("/second",
-                  // (route) => true,);// Function is executed on tap.
-                },
-
-                child: new Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  //mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-
-                    new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      
-                      children: <Widget>[
-
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Icon(Icons.brightness_4, color: Colors.blue[700], size: 30.0,),
-                              SizedBox(
-                                height: 8.0,
-                              ),
-
-                              Text(
-                                'Newsfeed',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Icon(Icons.all_inclusive, color: Colors.yellow[600], size: 30.0,),
-                              SizedBox(
-                                height: 8.0,
-                              ),
-
-                              Text(
-                                'Charity',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Icon(Icons.people, color: Colors.green, size: 30.0,),
-                             
-                              SizedBox(
-                                height: 8.0,
-                              ),
-
-                              Text(
-                                'Asnaf',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+    Paint paintRed = Paint();
+    paintRed.color = Colors.red;
+    Paint paintYellow = Paint();
+    paintYellow.color = Colors.yellow;
+    Paint paintGreen = Paint();
+    paintGreen.color = Colors.green;
+    return new Stack(
+      children: <Widget>[
+        // The containers in the background
+        new Column(
+          children: <Widget>[
+            new Container(
+              height: MediaQuery.of(context).size.height * .30,
+              decoration: BoxDecoration(
+                border: null,
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.deepPurple,
+                    Colors.purple,
                   ],
                 ),
               ),
-              )
+              child: Center(
+                child: Text(
+                  ' MyMasjid \nAhmad Kazim',
+                  textDirection: TextDirection.ltr,
+                  style: TextStyle(
+                    fontFamily: 'RobotoMono',
+                    decoration: TextDecoration.none,
+                    fontSize: 25,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
-          ),
+            new Container(
+              height: MediaQuery.of(context).size.height * .70,
+              color: Colors.white,
+            )
+          ],
+        ),
 
+        // The card widget with top padding,
+        // incase if you wanted bottom padding to work,
+        // set the `alignment` of container to Alignment.bottomCenter
 
+        new Container(
+          alignment: Alignment.topCenter,
+          padding: new EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * .20,
+              right: 20.0,
+              left: 20.0),
 
-          new Container(
-              alignment: Alignment.topCenter,
-              padding: new EdgeInsets.only(
-                  top: MediaQuery
-                      .of(context)
-                      .size
-                      .height * .40,
+          //size of application list box
+          child: new Container(
+              height: 180,
+              width: MediaQuery.of(context).size.width,
+              child: new Card(
+                color: Colors.white,
+                elevation: 4.0,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new SecondHome()));
 
-                  right: 20.0,
-                  left: 20.0),
+                    // Navigator.of(context).pushNamedAndRemoveUntil("/second",
+                    // (route) => true,);// Function is executed on tap.
+                  },
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    //mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      //first row of application list
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          //Newsfeed Application Button
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.brightness_4,
+                                  color: Colors.blue[700],
+                                  size: 30.0,
+                                ),
+                                SizedBox(
+                                  height: 8.0,
+                                ),
+                                Text(
+                                  'Newsfeed',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
 
+                          //Charity Application Button
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.all_inclusive,
+                                  color: Colors.yellow[600],
+                                  size: 30.0,
+                                ),
+                                SizedBox(
+                                  height: 8.0,
+                                ),
+                                Text(
+                                  'Charity',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
 
-              child: new Container(
-                height: 300.0,
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
+                          //Asnaf Application Button
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.people,
+                                  color: Colors.green,
+                                  size: 30.0,
+                                ),
+                                SizedBox(
+                                  height: 8.0,
+                                ),
+                                Text(
+                                  'Asnaf',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
 
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.people,
+                                  color: Colors.green,
+                                  size: 30.0,
+                                ),
+                                SizedBox(
+                                  height: 8.0,
+                                ),
+                                Text(
+                                  'Asnaf',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
 
+                      //second row of application service
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          //Newsfeed Application Button
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.brightness_4,
+                                  color: Colors.blue[700],
+                                  size: 30.0,
+                                ),
+                                SizedBox(
+                                  height: 8.0,
+                                ),
+                                Text(
+                                  'Newsfeed',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+
+                          //Charity Application Button
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.all_inclusive,
+                                  color: Colors.yellow[600],
+                                  size: 30.0,
+                                ),
+                                SizedBox(
+                                  height: 8.0,
+                                ),
+                                Text(
+                                  'Charity',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+
+                          //Asnaf Application Button
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.people,
+                                  color: Colors.green,
+                                  size: 30.0,
+                                ),
+                                SizedBox(
+                                  height: 8.0,
+                                ),
+                                Text(
+                                  'Asnaf',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              )),
+        ),
+
+ListView(
+  children: [
+        //carousell highlight
+        new Container(
+            alignment: Alignment.topCenter,
+            padding: new EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * .49,
+                right: 20.0,
+                left: 20.0),
+            child: new Container(
+                height: 290.0, // size of carousell card
+                width: MediaQuery.of(context).size.width,
                 child: new Card(
                     child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).pushNamedAndRemoveUntil("/second",
-                              (route) => true,);// Function is executed on tap.
-                      },
-
-
-
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      "/second",
+                      (route) => true,
+                    ); // Function is executed on tap.
+                  },
                   child: Container(
                     // decoration: BoxDecoration(
                     //     gradient: LinearGradient(
@@ -378,65 +446,130 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     // ),
 
-
-                    //elevation: 4.0,
+                    // elevation: 4.0,
 
                     child: new Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-
                         Expanded(
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-
                               Padding(
                                   padding: EdgeInsets.symmetric(vertical: 15.0),
                                   child: Column(children: [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
+                                        child: Text(
+                                          'Highlights : Newsfeed',
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
 
-                                       Text(
-                                      'Highlight : Newsfeed',
-                                      
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                      
-                                      
-
-                                ),
-                              ),
                                     CarouselWithIndicator(),
                                   ])),
-           
-
                               SizedBox(
-                                height: 35.0,
+                                height: 15.0,
                               ),
-                              
-
                             ],
                           ),
                         ),
                       ],
                     ),
                   ),
-              )
-            )
-           )
-          )
-        ],
-      );
-    }
+                )))),
+      
+            //carousell highlight 2
+        new Container(
+            alignment: Alignment.topCenter,
+            padding: new EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * .01,
+                right: 20.0,
+                left: 20.0),
+            child: new Container(
+                height: 290.0, // size of carousell card
+                width: MediaQuery.of(context).size.width,
+                child: new Card(
+                    child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      "/second",
+                      (route) => true,
+                    ); // Function is executed on tap.
+                  },
+                  child: Container(
+                    // decoration: BoxDecoration(
+                    //     gradient: LinearGradient(
+                    //       //begin: Alignment.topRight,
+                    //       //end: Alignment.bottomLeft,
+                    //         colors: [
+                    //           Colors.amberAccent,
+                    //           Colors.amberAccent,
+                    //           Colors.amber[100]
+                    //         ]
+
+                    //     )
+
+                    // ),
+
+                    // elevation: 4.0,
+
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                                  child: Column(children: [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
+                                        child: Text(
+                                          'Highlights : Newsfeed',
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    CarouselWithIndicator(),
+                                  ])),
+                              SizedBox(
+                                height: 15.0,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )))),
+      
+  ],),
+      ],
+    );
   }
-
-
-
-
-
+}
 
 // class SecondHome extends StatelessWidget {
 //   @override
@@ -457,16 +590,11 @@ class _MyHomePageState extends State<MyHomePage> {
 //   }
 // }
 
+//Newsfeeed Homepage
 
 class SecondHome extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Networking",
-      home: NewsList()
-    );
+    return MaterialApp(title: "Networking", home: NewsList());
   }
-
 }
-

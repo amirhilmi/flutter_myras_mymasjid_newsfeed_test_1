@@ -155,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   floating: true,
                   
                   delegate: CustomSliverDelegate(
-                    expandedHeight: 180,
+                    expandedHeight: 280,
                   ),
                 ),
                 SliverFillRemaining(
@@ -348,23 +348,42 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               SizedBox(
                 height: appBarSize < kToolbarHeight ? kToolbarHeight : appBarSize,
-                child: AppBar(
-                  backgroundColor: Colors.green,
-                  leading: IconButton(
-                    icon: Icon(Icons.menu),
-                    onPressed: () {},
-                  ),
-                  elevation: 0.0,
+                
+                
+                child:                         AppBar(
+                  
+                  centerTitle: true,
+                                
+                  // leading: IconButton(
+                  //   icon: Icon(Icons.menu),
+                  //   onPressed: () {},
+                  // ),
+                  elevation: 2.0,
                   title: Opacity(
                       opacity: hideTitleWhenExpanded ? 1.0 - percent : 1.0,
-                      child: Text("MyMasjid")),
+                      child: Text("MyMasjid",style: TextStyle(color: Colors.limeAccent,))),
+                          flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+              Colors.greenAccent[700],
+              Colors.lightGreen[700],
+            ])          
+         ),        
+     ), 
                 ),
+
+
+
+
               ),
               Positioned(
                 left: 0.0,
                 right: 0.0,
                 top: cardTopPosition > 0 ? cardTopPosition : 0,
-                bottom: 0.0,
+                bottom: 70.0,
                 child: Opacity(
                   opacity: percent,
                   child: Padding(

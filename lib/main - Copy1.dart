@@ -141,234 +141,57 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-
-
 class _MyHomePageState extends State<MyHomePage> {
-      @override
-      Widget build(BuildContext context) {
-        return Scaffold(
-          body: SafeArea( //done
-            child: CustomScrollView(
-              slivers: <Widget>[
+  @override
+  Widget build(BuildContext context) {
+
+    final CarouselSlider manualCarouselDemo = CarouselSlider(
+      items: child,
+      autoPlay: false,
+      enlargeCenterPage: true,
+      viewportFraction: 0.9,
+      aspectRatio: 2.0,
+    );
+
+
+    
+    //Homepageheader
+
+    return new Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: <Widget>[
                 SliverPersistentHeader(
                   pinned: true,
                   floating: true,
-                  
                   delegate: CustomSliverDelegate(
-                    expandedHeight: 180,
+                    expandedHeight: 120,
                   ),
                 ),
                 SliverFillRemaining(
-                
-                   child: Stack(
-  children: [
-        //carousell highlight
-        new Container(
-            alignment: Alignment.topCenter,
-            padding: new EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * .49,
-                right: 20.0,
-                left: 20.0),
-            child: new Container(
-                height: 290.0, // size of carousell card
-                width: MediaQuery.of(context).size.width,
-                child: new Card(
-                    child: new InkWell(
-                    splashColor: Colors.green,
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                      "/second",
-                      (route) => true,
-                    ); // Function is executed on tap.
-                  },
-                  child: Container(
-                    // decoration: BoxDecoration(
-                    //     gradient: LinearGradient(
-                    //       //begin: Alignment.topRight,
-                    //       //end: Alignment.bottomLeft,
-                    //         colors: [
-                    //           Colors.amberAccent,
-                    //           Colors.amberAccent,
-                    //           Colors.amber[100]
-                    //         ]
-
-                    //     )
-
-                    // ),
-
-                    // elevation: 4.0,
-
-                    child: new Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 15.0),
-                                  child: Column(children: [
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
-                                        child: Text(
-                                          'Advertisement',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-
-                                    CarouselWithIndicator(),
-                                  ])),
-                              SizedBox(
-                                height: 15.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                  child: Center(
+                    child: Text("data"),
                   ),
-                )))),
-      
-            //carousell highlight 2
-        new Container(
-            alignment: Alignment.topCenter,
-            padding: new EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * .01,
-                right: 20.0,
-                left: 20.0),
-            child: new Container(
-                height: 290.0, // size of carousell card
-                width: MediaQuery.of(context).size.width,
-                child: new Card(
-                    child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                      "/second",
-                      (route) => true,
-                    ); // Function is executed on tap.
-                  },
-                  child: Container(
-                    // decoration: BoxDecoration(
-                    //     gradient: LinearGradient(
-                    //       //begin: Alignment.topRight,
-                    //       //end: Alignment.bottomLeft,
-                    //         colors: [
-                    //           Colors.amberAccent,
-                    //           Colors.amberAccent,
-                    //           Colors.amber[100]
-                    //         ]
-
-                    //     )
-
-                    // ),
-
-                    // elevation: 4.0,
-
-                    child: new Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 15.0),
-                                  child: Column(children: [
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
-                                        child: Text(
-                                          'Highlights : Newsfeed',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-
-                                    CarouselWithIndicator(),
-                                  ])),
-                              SizedBox(
-                                height: 15.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )))),
-      
-  ],),
-
-                  
-                ), //SliverListRemaining
-              ],
-            ),
-          ),
-        );
-      }
-    }
-
-    class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
-      final double expandedHeight;
-      final bool hideTitleWhenExpanded;
-
-      CustomSliverDelegate({
-        @required this.expandedHeight,
-        this.hideTitleWhenExpanded = true,
-      });
-
-      @override
-      Widget build(
-          BuildContext context, double shrinkOffset, bool overlapsContent) {
-        final appBarSize = expandedHeight - shrinkOffset;
-        final cardTopPosition = expandedHeight / 2 - shrinkOffset;
-        final proportion = 2 - (expandedHeight / appBarSize);
-        final percent = proportion < 0 || proportion > 1 ? 0.0 : proportion;
-        return SizedBox(
-          height: expandedHeight + expandedHeight / 2,
-          child: Stack(
-            children: [
-              SizedBox(
-                height: appBarSize < kToolbarHeight ? kToolbarHeight : appBarSize,
-                child: AppBar(
-                  backgroundColor: Colors.green,
-                  leading: IconButton(
-                    icon: Icon(Icons.menu),
-                    onPressed: () {},
-                  ),
-                  elevation: 0.0,
-                  title: Opacity(
-                      opacity: hideTitleWhenExpanded ? 1.0 - percent : 1.0,
-                      child: Text("MyMasjid")),
                 ),
-              ),
-              Positioned(
-                left: 0.0,
-                right: 0.0,
-                top: cardTopPosition > 0 ? cardTopPosition : 0,
-                bottom: 0.0,
-                child: Opacity(
-                  opacity: percent,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30 * percent),
+              ],
+
+      //pasted
+ 
+        // The card widget with top padding,
+        // incase if you wanted bottom padding to work,
+        // set the `alignment` of container to Alignment.bottomCenter
+
+        new Container(
+          alignment: Alignment.topCenter,
+          padding: new EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * .20,
+              right: 20.0,
+              left: 20.0),
+
+          //size of application list box
+          child: new Container(
+              height: 180,
+              width: MediaQuery.of(context).size.width,
               child: new Card(
                 color: Colors.white,
                 elevation: 4.0,
@@ -568,27 +391,168 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-              ),
+              )),
+        ),
+
+ListView(
+  children: [
+        //carousell highlight
+        new Container(
+            alignment: Alignment.topCenter,
+            padding: new EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * .49,
+                right: 20.0,
+                left: 20.0),
+            child: new Container(
+                height: 290.0, // size of carousell card
+                width: MediaQuery.of(context).size.width,
+                child: new Card(
+                    child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      "/second",
+                      (route) => true,
+                    ); // Function is executed on tap.
+                  },
+                  child: Container(
+                    // decoration: BoxDecoration(
+                    //     gradient: LinearGradient(
+                    //       //begin: Alignment.topRight,
+                    //       //end: Alignment.bottomLeft,
+                    //         colors: [
+                    //           Colors.amberAccent,
+                    //           Colors.amberAccent,
+                    //           Colors.amber[100]
+                    //         ]
+
+                    //     )
+
+                    // ),
+
+                    // elevation: 4.0,
+
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                                  child: Column(children: [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
+                                        child: Text(
+                                          'Highlights : Newsfeed',
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    CarouselWithIndicator(),
+                                  ])),
+                              SizedBox(
+                                height: 15.0,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ),
-            ],
-          ),
-        );
-      }
+                )))),
+      
+            //carousell highlight 2
+        new Container(
+            alignment: Alignment.topCenter,
+            padding: new EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * .01,
+                right: 20.0,
+                left: 20.0),
+            child: new Container(
+                height: 290.0, // size of carousell card
+                width: MediaQuery.of(context).size.width,
+                child: new Card(
+                    child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      "/second",
+                      (route) => true,
+                    ); // Function is executed on tap.
+                  },
+                  child: Container(
+                    // decoration: BoxDecoration(
+                    //     gradient: LinearGradient(
+                    //       //begin: Alignment.topRight,
+                    //       //end: Alignment.bottomLeft,
+                    //         colors: [
+                    //           Colors.amberAccent,
+                    //           Colors.amberAccent,
+                    //           Colors.amber[100]
+                    //         ]
 
-      @override
-      double get maxExtent => expandedHeight + expandedHeight / 2;
+                    //     )
 
-      @override
-      double get minExtent => kToolbarHeight;
+                    // ),
 
-      @override
-      bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-        return true;
-      }
-    }
+                    // elevation: 4.0,
 
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                                  child: Column(children: [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
+                                        child: Text(
+                                          'Highlights : Newsfeed',
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    CarouselWithIndicator(),
+                                  ])),
+                              SizedBox(
+                                height: 15.0,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )))),
+      
+  ],),
+      ],
+    );
+  }
+}
 
 // class SecondHome extends StatelessWidget {
 //   @override

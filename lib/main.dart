@@ -380,15 +380,47 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
           Positioned(
             left: 0.0,
             right: 0.0,
-            top: 40,
+            top: 22,
             bottom: 70.0,
             child: Opacity(
               opacity: percent,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20 * percent),
-                child: new Container(
+               
+                child: new Column(
+                
+               //pic of user
+                children: [
                   
-                  
+        new Container(
+          // padding: new EdgeInsets.only(top: 16.0),
+          child: new Row(
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+
+
+              new Text(
+                'MyMasjid',
+                style: new TextStyle(
+                  fontSize: 25.0,
+                  fontFamily: 'Roboto',
+                  color: new Color(0xFFFFFFFF)
+                ),
+              )
+            ],
+          ),
+          alignment: Alignment(-1.0, -0.8),
+        ),
+
+
+
+
+               //pic of user
+                
+
+                  new Container(
+                                
                   child: new ListTile(
                     trailing: new CircleAvatar(
                       foregroundColor: Theme.of(context).primaryColor,
@@ -400,9 +432,9 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         new Text(
-                          "MyMasjid",
+                          " ",
                           style: new TextStyle(
-                              color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 25.0),
+                              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25.0),
                           textAlign: TextAlign.right,
                         ),
                         new Text(
@@ -411,17 +443,63 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                         ),
                       ],
                     ),
+                    // subtitle: new Container(
+                    //   padding: const EdgeInsets.only(top: 5.0),
+                    //   child: new Text(
+                    //     "Next prayer : in 20 mins (Asar)",
+                    //     style: new TextStyle(
+                    //         color: Colors.grey[300], fontSize: 15.0),
+                    //     textAlign: TextAlign.right,
+                    //   ),
+                    // ),
+                  ),
+                ),
+                
+
+
+
+                // prayer time
+                  new Container(
+                                
+                  child: new ListTile(
+
+                    title: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        new Text(
+                          " ",
+                          style: new TextStyle(
+                              color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 25.0),
+                          textAlign: TextAlign.right,
+                        ),
+                        new Text(
+                          "Next prayer : in 20 mins (Asar)",
+                          style: new TextStyle(color: Colors.grey[300],  fontSize: 12.0),
+                        ),
+                      ],
+                    ),
                     subtitle: new Container(
-                      padding: const EdgeInsets.only(top: 5.0),
+                      padding: const EdgeInsets.only(top: 1.0),
                       child: new Text(
-                        "Next prayer : in 20 mins (Asar)",
+                        "Nearest Mosque : 1km Northeast",
                         style: new TextStyle(
-                            color: Colors.grey[300], fontSize: 15.0),
+                            color: Colors.grey[300], fontSize: 12.0),
                         textAlign: TextAlign.right,
                       ),
                     ),
                   ),
                 ),
+                
+
+
+
+
+                ]
+
+
+              ),
+
+
               ),
             ),
           ),

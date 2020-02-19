@@ -141,475 +141,519 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-
-
 class _MyHomePageState extends State<MyHomePage> {
-      @override
-      Widget build(BuildContext context) {
-        return Scaffold(
-          body: SafeArea( //done
-            child: CustomScrollView(
-              slivers: <Widget>[
-                SliverPersistentHeader(
-                  pinned: true,
-                  floating: true,
-                  
-                  delegate: CustomSliverDelegate(
-                    expandedHeight: 280,
-                  ),
-                ),
-                SliverFillRemaining(
-                
-                   child: Stack(
-  children: [
-        //carousell highlight
-        new Container(
-            alignment: Alignment.topCenter,
-            padding: new EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * .49,
-                right: 20.0,
-                left: 20.0),
-            child: new Container(
-                height: 290.0, // size of carousell card
-                width: MediaQuery.of(context).size.width,
-                child: new Card(
-                    child: new InkWell(
-                    splashColor: Colors.green,
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                      "/second",
-                      (route) => true,
-                    ); // Function is executed on tap.
-                  },
-                  child: Container(
-                    // decoration: BoxDecoration(
-                    //     gradient: LinearGradient(
-                    //       //begin: Alignment.topRight,
-                    //       //end: Alignment.bottomLeft,
-                    //         colors: [
-                    //           Colors.amberAccent,
-                    //           Colors.amberAccent,
-                    //           Colors.amber[100]
-                    //         ]
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        //done
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverPersistentHeader(
+              pinned: true,
+              floating: true,
+              delegate: CustomSliverDelegate(
+                expandedHeight: 280,
+              ),
+            ),
+            SliverFillRemaining(
+              child: Stack(
+                children: [
+                  //carousell highlight
+                  new Container(
+                      alignment: Alignment.topCenter,
+                      padding: new EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * .49,
+                          right: 20.0,
+                          left: 20.0),
+                      child: new Container(
+                          height: 290.0, // size of carousell card
+                          width: MediaQuery.of(context).size.width,
+                          child: new Card(
+                              child: new InkWell(
+                            splashColor: Colors.green,
+                            onTap: () {
+                              Navigator.of(context).pushNamedAndRemoveUntil(
+                                "/second",
+                                (route) => true,
+                              ); // Function is executed on tap.
+                            },
+                            child: Container(
+                              // decoration: BoxDecoration(
+                              //     gradient: LinearGradient(
+                              //       //begin: Alignment.topRight,
+                              //       //end: Alignment.bottomLeft,
+                              //         colors: [
+                              //           Colors.amberAccent,
+                              //           Colors.amberAccent,
+                              //           Colors.amber[100]
+                              //         ]
 
-                    //     )
+                              //     )
 
-                    // ),
+                              // ),
 
-                    // elevation: 4.0,
+                              // elevation: 4.0,
 
-                    child: new Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 15.0),
-                                  child: Column(children: [
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
-                                        child: Text(
-                                          'Advertisement',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                          ),
+                              child: new Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 15.0),
+                                            child: Column(children: [
+                                              Align(
+                                                alignment: Alignment.centerLeft,
+                                                child: Container(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      0, 0, 0, 8),
+                                                  child: Text(
+                                                    'Advertisement',
+                                                    textAlign: TextAlign.left,
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 18,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              CarouselWithIndicator(),
+                                            ])),
+                                        SizedBox(
+                                          height: 15.0,
                                         ),
-                                      ),
+                                      ],
                                     ),
-
-                                    CarouselWithIndicator(),
-                                  ])),
-                              SizedBox(
-                                height: 15.0,
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )))),
-      
-            //carousell highlight 2
-        new Container(
-            alignment: Alignment.topCenter,
-            padding: new EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * .01,
-                right: 20.0,
-                left: 20.0),
-            child: new Container(
-                height: 290.0, // size of carousell card
-                width: MediaQuery.of(context).size.width,
-                child: new Card(
-                    child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                      "/second",
-                      (route) => true,
-                    ); // Function is executed on tap.
-                  },
-                  child: Container(
-                    // decoration: BoxDecoration(
-                    //     gradient: LinearGradient(
-                    //       //begin: Alignment.topRight,
-                    //       //end: Alignment.bottomLeft,
-                    //         colors: [
-                    //           Colors.amberAccent,
-                    //           Colors.amberAccent,
-                    //           Colors.amber[100]
-                    //         ]
+                            ),
+                          )))),
 
-                    //     )
+                  //carousell highlight 2
+                  new Container(
+                      alignment: Alignment.topCenter,
+                      padding: new EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * .01,
+                          right: 20.0,
+                          left: 20.0),
+                      child: new Container(
+                          height: 290.0, // size of carousell card
+                          width: MediaQuery.of(context).size.width,
+                          child: new Card(
+                              child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).pushNamedAndRemoveUntil(
+                                "/second",
+                                (route) => true,
+                              ); // Function is executed on tap.
+                            },
+                            child: Container(
+                              // decoration: BoxDecoration(
+                              //     gradient: LinearGradient(
+                              //       //begin: Alignment.topRight,
+                              //       //end: Alignment.bottomLeft,
+                              //         colors: [
+                              //           Colors.amberAccent,
+                              //           Colors.amberAccent,
+                              //           Colors.amber[100]
+                              //         ]
 
-                    // ),
+                              //     )
 
-                    // elevation: 4.0,
+                              // ),
 
-                    child: new Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 15.0),
-                                  child: Column(children: [
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
-                                        child: Text(
-                                          'Highlights : Newsfeed',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                          ),
+                              // elevation: 4.0,
+
+                              child: new Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 15.0),
+                                            child: Column(children: [
+                                              Align(
+                                                alignment: Alignment.centerLeft,
+                                                child: Container(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      0, 0, 0, 8),
+                                                  child: Text(
+                                                    'Highlights : Newsfeed',
+                                                    textAlign: TextAlign.left,
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 18,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              CarouselWithIndicator(),
+                                            ])),
+                                        SizedBox(
+                                          height: 15.0,
                                         ),
-                                      ),
+                                      ],
                                     ),
-
-                                    CarouselWithIndicator(),
-                                  ])),
-                              SizedBox(
-                                height: 15.0,
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )))),
-      
-  ],),
+                            ),
+                          )))),
+                ],
+              ),
+            ), //SliverListRemaining
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-                  
-                ), //SliverListRemaining
-              ],
+class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
+  final double expandedHeight;
+  final bool hideTitleWhenExpanded;
+
+  CustomSliverDelegate({
+    @required this.expandedHeight,
+    this.hideTitleWhenExpanded = true,
+  });
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    final appBarSize = expandedHeight - shrinkOffset;
+    final cardTopPosition = expandedHeight / 1.8 - shrinkOffset;
+    final proportion = 2 - (expandedHeight / appBarSize);
+    final percent = proportion < 0 || proportion > 1 ? 0.0 : proportion;
+    return SizedBox(
+      height: expandedHeight + expandedHeight / 2,
+      child: Stack(
+        children: [
+          SizedBox(
+            height: appBarSize < kToolbarHeight ? kToolbarHeight : appBarSize,
+            child: AppBar(
+              centerTitle: true,
+
+              // leading: IconButton(
+              //   icon: Icon(Icons.menu),
+              //   onPressed: () {},
+              // ),
+              elevation: 2.0,
+              title: Opacity(
+                  opacity: hideTitleWhenExpanded ? 1.0 - percent : 1.0,
+                  child: Text("MyMasjid",
+                      style: TextStyle(
+                        color: Colors.limeAccent,
+                      ))),
+              flexibleSpace: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: <Color>[
+                      Colors.greenAccent[700],
+                      Colors.lightGreen[700],
+                    ])),
+              ),
             ),
           ),
-        );
-      }
-    }
 
-    class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
-      final double expandedHeight;
-      final bool hideTitleWhenExpanded;
-
-      CustomSliverDelegate({
-        @required this.expandedHeight,
-        this.hideTitleWhenExpanded = true,
-      });
-
-      @override
-      Widget build(
-          BuildContext context, double shrinkOffset, bool overlapsContent) {
-        final appBarSize = expandedHeight - shrinkOffset;
-        final cardTopPosition = expandedHeight / 2 - shrinkOffset;
-        final proportion = 2 - (expandedHeight / appBarSize);
-        final percent = proportion < 0 || proportion > 1 ? 0.0 : proportion;
-        return SizedBox(
-          height: expandedHeight + expandedHeight / 2,
-          child: Stack(
-            children: [
-              SizedBox(
-                height: appBarSize < kToolbarHeight ? kToolbarHeight : appBarSize,
-                
-                
-                child:                         AppBar(
+          //User setting box
+          Positioned(
+            left: 0.0,
+            right: 0.0,
+            top: 40,
+            bottom: 70.0,
+            child: Opacity(
+              opacity: percent,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20 * percent),
+                child: new Container(
                   
-                  centerTitle: true,
-                                
-                  // leading: IconButton(
-                  //   icon: Icon(Icons.menu),
-                  //   onPressed: () {},
-                  // ),
-                  elevation: 2.0,
-                  title: Opacity(
-                      opacity: hideTitleWhenExpanded ? 1.0 - percent : 1.0,
-                      child: Text("MyMasjid",style: TextStyle(color: Colors.limeAccent,))),
-                          flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: <Color>[
-              Colors.greenAccent[700],
-              Colors.lightGreen[700],
-            ])          
-         ),        
-     ), 
-                ),
-
-
-
-
-              ),
-              Positioned(
-                left: 0.0,
-                right: 0.0,
-                top: cardTopPosition > 0 ? cardTopPosition : 0,
-                bottom: 70.0,
-                child: Opacity(
-                  opacity: percent,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20 * percent),
-              child: new Card(
-                color: Colors.white,
-                elevation: 4.0,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new SecondHome()));
-
-                    // Navigator.of(context).pushNamedAndRemoveUntil("/second",
-                    // (route) => true,);// Function is executed on tap.
-                  },
-                  child: new Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    //mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      //first row of application list
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          //Newsfeed Application Button
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.brightness_4,
-                                  color: Colors.blue[700],
-                                  size: 30.0,
-                                ),
-                                SizedBox(
-                                  height: 8.0,
-                                ),
-                                Text(
-                                  'Newsfeed',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-
-                          //Charity Application Button
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.all_inclusive,
-                                  color: Colors.yellow[600],
-                                  size: 30.0,
-                                ),
-                                SizedBox(
-                                  height: 8.0,
-                                ),
-                                Text(
-                                  'Charity',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-
-                          //Asnaf Application Button
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.people,
-                                  color: Colors.green,
-                                  size: 30.0,
-                                ),
-                                SizedBox(
-                                  height: 8.0,
-                                ),
-                                Text(
-                                  'Asnaf',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.people,
-                                  color: Colors.green,
-                                  size: 30.0,
-                                ),
-                                SizedBox(
-                                  height: 8.0,
-                                ),
-                                Text(
-                                  'Asnaf',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
+                  
+                  child: new ListTile(
+                    trailing: new CircleAvatar(
+                      foregroundColor: Theme.of(context).primaryColor,
+                      backgroundColor: Colors.grey,
+                      backgroundImage: new NetworkImage(
+                          "https://4.bp.blogspot.com/-xHDXyhSr0No/TiZtgISjVtI/AAAAAAAAARU/98xGq943Qjs/s1600/282001_175226442543572_100001686515535_453348_4392783_n.jpg"),
+                    ),
+                    title: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        new Text(
+                          "MyMasjid",
+                          style: new TextStyle(
+                              color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 25.0),
+                          textAlign: TextAlign.right,
+                        ),
+                        new Text(
+                          "Ahmad Kazim",
+                          style: new TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    subtitle: new Container(
+                      padding: const EdgeInsets.only(top: 5.0),
+                      child: new Text(
+                        "Next prayer : in 20 mins (Asar)",
+                        style: new TextStyle(
+                            color: Colors.grey[300], fontSize: 15.0),
+                        textAlign: TextAlign.right,
                       ),
-
-                      //second row of application service
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          //Newsfeed Application Button
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.brightness_4,
-                                  color: Colors.blue[700],
-                                  size: 30.0,
-                                ),
-                                SizedBox(
-                                  height: 8.0,
-                                ),
-                                Text(
-                                  'Newsfeed',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-
-                          //Charity Application Button
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.all_inclusive,
-                                  color: Colors.yellow[600],
-                                  size: 30.0,
-                                ),
-                                SizedBox(
-                                  height: 8.0,
-                                ),
-                                Text(
-                                  'Charity',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-
-                          //Asnaf Application Button
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.people,
-                                  color: Colors.green,
-                                  size: 30.0,
-                                ),
-                                SizedBox(
-                                  height: 8.0,
-                                ),
-                                Text(
-                                  'Asnaf',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-                  ),
-                ),
-
-              ),
-              
-            ],
+            ),
           ),
-        );
-      }
 
-      @override
-      double get maxExtent => expandedHeight + expandedHeight / 2;
+          Positioned(
+            left: 0.0,
+            right: 0.0,
+            top: cardTopPosition > 0 ? cardTopPosition : 0,
+            bottom: 70.0,
+            child: Opacity(
+              opacity: percent,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20 * percent),
+                child: new Card(
+                  color: Colors.white,
+                  elevation: 4.0,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new SecondHome()));
 
-      @override
-      double get minExtent => kToolbarHeight;
+                      // Navigator.of(context).pushNamedAndRemoveUntil("/second",
+                      // (route) => true,);// Function is executed on tap.
+                    },
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      //mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        //first row of application list
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            //Newsfeed Application Button
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.brightness_4,
+                                    color: Colors.blue[700],
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                    'Newsfeed',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
 
-      @override
-      bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-        return true;
-      }
-    }
+                            //Charity Application Button
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.all_inclusive,
+                                    color: Colors.yellow[600],
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                    'Charity',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
 
+                            //Asnaf Application Button
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.people,
+                                    color: Colors.green,
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                    'Asnaf',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.people,
+                                    color: Colors.green,
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                    'Asnaf',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        //second row of application service
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            //Newsfeed Application Button
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.brightness_4,
+                                    color: Colors.blue[700],
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                    'Newsfeed',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+
+                            //Charity Application Button
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.all_inclusive,
+                                    color: Colors.yellow[600],
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                    'Charity',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+
+                            //Asnaf Application Button
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.people,
+                                    color: Colors.green,
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                    'Asnaf',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => expandedHeight + expandedHeight / 2;
+
+  @override
+  double get minExtent => kToolbarHeight;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
+  }
+}
 
 // class SecondHome extends StatelessWidget {
 //   @override

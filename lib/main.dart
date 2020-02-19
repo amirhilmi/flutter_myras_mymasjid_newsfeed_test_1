@@ -387,7 +387,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Opacity(
                   opacity: percent,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30 * percent),
+                    padding: EdgeInsets.symmetric(horizontal: 20 * percent),
               child: new Card(
                 color: Colors.white,
                 elevation: 4.0,
@@ -590,7 +590,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
                   ),
                 ),
+
               ),
+              
             ],
           ),
         );

@@ -497,16 +497,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                 child: new Card(
                   color: Colors.white,
                   elevation: 4.0,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => new SecondHome()));
 
-                      // Navigator.of(context).pushNamedAndRemoveUntil("/second",
-                      // (route) => true,);// Function is executed on tap.
-                    },
                     child: new Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       //mainAxisSize: MainAxisSize.max,
@@ -518,6 +509,22 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                           children: <Widget>[
                             //Newsfeed Application Button
                             Expanded(
+
+                               child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new HomeAppNewsfeed()));
+
+                      // Navigator.of(context).pushNamedAndRemoveUntil("/second",
+                      // (route) => true,);// Function is executed on tap.
+                    },                           
+
+                              
+
+                              
+                              
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
@@ -539,22 +546,39 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                                 ],
                               ),
                             ),
+                            ),
 
-                            //Charity Application Button
+                            //Quran Application Button
                             Expanded(
+
+                               child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new HomeAppQuranku()));
+
+                      // Navigator.of(context).pushNamedAndRemoveUntil("/second",
+                      // (route) => true,);// Function is executed on tap.
+                    },                                
+
+
+
+
+                              
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Icon(
-                                    Icons.all_inclusive,
-                                    color: Colors.yellow[600],
+                                    Icons.book,
+                                    color: Colors.pink[200],
                                     size: 30.0,
                                   ),
                                   SizedBox(
                                     height: 8.0,
                                   ),
                                   Text(
-                                    'Charity',
+                                    'Quran',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -562,6 +586,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                                   )
                                 ],
                               ),
+                            ),
                             ),
 
                             //Asnaf Application Button
@@ -692,7 +717,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                         ),
                       ],
                     ),
-                  ),
+                  
                 ),
               ),
             ),
@@ -735,7 +760,15 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
 
 //Newsfeeed Homepage
 
-class SecondHome extends StatelessWidget {
+class HomeAppNewsfeed extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(title: "Networking", home: NewsList());
+  }
+}
+
+
+class HomeAppQuranku extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(title: "Networking", home: QurankuMain());

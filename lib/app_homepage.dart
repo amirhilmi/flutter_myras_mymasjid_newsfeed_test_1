@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:networking_demo/widgets/newsList.dart';
 import 'app_program/quranku/home.dart';
 import 'app_program/folder_flutter_chart/home.dart';
+import 'package:device_apps/device_apps.dart';
 
 
 final List<String> imgList = [
@@ -512,7 +513,9 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                             Expanded(
 
                                child: InkWell(
-                    onTap: () {
+
+
+                                        onTap: () {
                       Navigator.push(
                           context,
                           new MaterialPageRoute(
@@ -520,7 +523,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
 
                       // Navigator.of(context).pushNamedAndRemoveUntil("/second",
                       // (route) => true,);// Function is executed on tap.
-                    },                           
+                    },                       
 
                               
 
@@ -659,6 +662,16 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                           children: <Widget>[
                             //Newsfeed Application Button
                             Expanded(
+
+
+                                                           child: InkWell(
+
+
+                    onTap: () => DeviceApps.openApp("com.renatfakhrutdinov.where_is_mecca"),   
+
+
+
+
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
@@ -679,6 +692,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                                   )
                                 ],
                               ),
+                            ),
                             ),
 
                             //Charity Application Button

@@ -663,7 +663,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Icon(
-                                    Icons.brightness_4,
+                                    Icons.near_me,
                                     color: Colors.blue[700],
                                     size: 30.0,
                                   ),
@@ -789,6 +789,9 @@ class HomeAppQuranku extends StatelessWidget {
     return MaterialApp(title: "Networking", home: QurankuMain());
   }
 }
+
+
+
 
 
 

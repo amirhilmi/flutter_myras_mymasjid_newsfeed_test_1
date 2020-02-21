@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:networking_demo/widgets/newsList.dart';
 import 'app_program/quranku/home.dart';
+import 'app_program/folder_flutter_chart/home.dart';
 
 
 final List<String> imgList = [
@@ -595,15 +596,15 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Icon(
-                                    Icons.people,
-                                    color: Colors.green,
+                                    Icons.shop,
+                                    color: Colors.deepOrange[300],
                                     size: 30.0,
                                   ),
                                   SizedBox(
                                     height: 8.0,
                                   ),
                                   Text(
-                                    'Asnaf',
+                                    'Shop',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
@@ -614,19 +615,32 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                             ),
 
                             Expanded(
+
+                               child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new HomeAppDashboard()));
+
+                      // Navigator.of(context).pushNamedAndRemoveUntil("/second",
+                      // (route) => true,);// Function is executed on tap.
+                    },  
+
+
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Icon(
-                                    Icons.people,
-                                    color: Colors.green,
+                                    Icons.grain,
+                                    color: Colors.greenAccent[700],
                                     size: 30.0,
                                   ),
                                   SizedBox(
                                     height: 8.0,
                                   ),
                                   Text(
-                                    'Asnaf',
+                                    'Dashboard',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
@@ -634,6 +648,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                                   )
                                 ],
                               ),
+                            ),
                             ),
                           ],
                         ),
@@ -656,7 +671,7 @@ class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
                                     height: 8.0,
                                   ),
                                   Text(
-                                    'Newsfeed',
+                                    'Qibla',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -772,5 +787,15 @@ class HomeAppQuranku extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(title: "Networking", home: QurankuMain());
+  }
+}
+
+
+
+
+class HomeAppDashboard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(title: "Networking", home: ChartMain());
   }
 }
